@@ -1,0 +1,46 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<!-- Main Section -->
+<main class="formPage my-xl">
+    <div class="content-box">
+        <div class="formWrapper">
+            <a class="backButton" href="{% url 'account' %}">&#8592;</a>
+            <br>
+
+            <form class="form" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                {% for field in form %}
+                <div class="form__field">
+                    <label for="formInput#text">{{field.label}}: </label>
+                    {{field}}
+                </div>
+                {% endfor %}
+
+
+                <div class="form__field">
+                    <label for="formInput#text">Tags:</label>
+                    {% for tag in project.tags.all %}
+                    {% comment %} <span class=" project-tag tag tag--pill tag--sub tag--lg">
+                    <small>{{tag}} &#215;</small>
+                    </span> {% endcomment %}
+                    <div class=" project-tag tag tag--pill tag--sub tag--lg" data-tag="{{tag.id}}" data-project="{{project.id}}">
+                        {{tag}} &#215;
+                    </div>
+
+                    {% endfor %}
+                    <textarea name="newtags" class="input" id="tagInput" placeholder="Add Tags, example: Python, React, Django"></textarea>
+                </div>
+
+                <input class="btn btn--sub btn--lg  my-md" type="submit" value="Submit" />
+            </form>
+        </div>
+    </div>
+</main>
+
+
+{% endblock content %}
+
+
