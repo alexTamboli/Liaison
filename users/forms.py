@@ -27,7 +27,10 @@ class ProfileForm(ModelForm):
     def __init__(self, *args, **kwargs) -> None:
         super(ProfileForm, self).__init__(*args, **kwargs)  
         for name, field in self.fields.items():
+            if name == 'location':
+                field.widget.attrs.update({'placeholder': 'City, Country'})
             field.widget.attrs.update({'class': 'input'})
+            
             
 
 class SkillForm(ModelForm):
