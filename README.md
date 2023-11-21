@@ -1,7 +1,6 @@
 ## Liaison - Project Sharing Platform
 
-- [Website Link](Your_Website_Link)
-- [GitHub Link](Your_GitHub_Link)
+- [Website Link] https://liaison-main.onrender.com/
 - February 2023
 
 ### Technologies Used
